@@ -25,34 +25,21 @@ app.get('/users', (req, res) => {
 });
 
 /*---------- ID diye dynamic:------ */
-// app.get('/users/:id', (req, res) => {
-//     const id = req.params.id;
-//     const user = users[id];
-//     res.send(user);
-// });
-
-/* ------- ID diye dynamic--another way: (Optimaized)------ */
 app.get('/users/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const user = users.find(users => users.id === id);
+    const id = req.params.id;
+    const user = users[id];
     res.send(user);
 });
+
 
 /*-----sending data to server using POST (eta hoche POST er route set kora)----*/
-// app.post('/users', (req, res) => {
-//     console.log('Request : ', req.body);
-//     res.send({ massage: 'Sending data to server using POST method---success' });
-// });   /*---- ekhankar data sudhu server e pathano hocche. UI te seta dekhano hocchen na-------- */
-
-
-/* ---Display POST data on the UI----- */
 app.post('/users', (req, res) => {
     console.log('Request : ', req.body);
-    const user = req.body;
-    user.id = users.length + 1;
-    users.push;
-    res.send(user);
-});
+    res.send({ massage: 'Sending data to server using POST method---success' });
+});   /*------- ekhankar data sudhu server e pathano hocche. UI te seta dekhano hocchen na-------- */
+
+
+
 
 
 app.listen(port, () => {
