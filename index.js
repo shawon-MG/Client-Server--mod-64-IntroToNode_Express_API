@@ -25,12 +25,18 @@ app.get('/users', (req, res) => {
 });
 
 /*---------- ID diye dynamic:------ */
+// app.get('/users/:id', (req, res) => {
+//     const id = req.params.id;
+//     const user = users[id];
+//     res.send(user);
+// });
+
+/* ------- ID diye dynamic--another way: (Optimaized)------ */
 app.get('/users/:id', (req, res) => {
-    const id = req.params.id;
-    const user = users[id];
+    const id = parseInt(req.params.id);
+    const user = users.find(users => users.id === id);
     res.send(user);
 });
-
 
 /*-----sending data to server using POST (eta hoche POST er route set kora)----*/
 app.post('/users', (req, res) => {
