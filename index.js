@@ -45,6 +45,14 @@ app.post('/users', (req, res) => {
 });   /*------- ekhankar data sudhu server e pathano hocche. UI te seta dekhano hocchen na-------- */
 
 
+/* ---Display POST data on the UI----- */
+app.post('/users', (req, res) => {
+    console.log('Request : ', req.body);
+    const user = req.body;
+    user.id = users.length + 1;
+    users.push;
+    res.send(user);
+});
 
 
 
